@@ -1,0 +1,16 @@
+p = int(input("Enter a prime number (p): "))
+g = int(input("Enter a primitive root (g): "))
+a = int(input("Enter Alice's private key: "))
+b = int(input("Enter Bob's private key: "))
+A = pow(g, a, p)   
+B = pow(g, b, p)   
+print("\nAlice's Public Key:", A)
+print("Bob's Public Key:", B)
+K_alice = pow(B, a, p)
+K_bob = pow(A, b, p)
+print("\nShared Secret Key (computed by Alice):", K_alice)
+print("Shared Secret Key (computed by Bob):", K_bob)
+if K_alice == K_bob:
+    print("\nKey Exchange Successful! Shared Key =", K_alice)
+else:
+    print("\nKey Exchange Failed!")
